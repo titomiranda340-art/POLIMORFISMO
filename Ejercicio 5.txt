@@ -1,0 +1,23 @@
+class Pago:
+    def procesarPago(self):
+        raise NotImplementedError
+
+class TarjetaCredito(Pago):
+    def procesarPago(self):
+        return "Pago procesado con Tarjeta de Crédito."
+
+class PayPal(Pago):
+    def procesarPago(self):
+        return "Pago procesado con PayPal."
+
+def main():
+    pagos = [
+        TarjetaCredito(),
+        PayPal()
+    ]
+
+    for pago in pagos:
+        print(f"{pago.__class__.__name__}: {pago.procesarPago()}")
+
+if __name__ == "__main__":
+    main()

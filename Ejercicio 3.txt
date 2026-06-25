@@ -1,0 +1,26 @@
+class Vehiculo:
+    def mover(self):
+        raise NotImplementedError
+
+class Coche(Vehiculo):
+    def mover(self):
+        return "El coche se mueve utilizando un motor."
+
+class Bicicleta(Vehiculo):
+    def mover(self):
+        return "La bicicleta se mueve al pedalear."
+
+def mostrarMovimiento(vehiculos):
+    for vehiculo in vehiculos:
+        print(f"{vehiculo.__class__.__name__}: {vehiculo.mover()}")
+
+def main():
+    vehiculos = [
+        Coche(),
+        Bicicleta()
+    ]
+
+    mostrarMovimiento(vehiculos)
+
+if __name__ == "__main__":
+    main()
